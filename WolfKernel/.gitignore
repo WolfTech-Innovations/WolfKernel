@@ -60,7 +60,6 @@ modules.order
 #
 /linux
 /modules-only.symvers
-/vmlinux
 /vmlinux.32
 /vmlinux.map
 /vmlinux.symvers
