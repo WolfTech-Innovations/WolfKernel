@@ -111,7 +111,6 @@ echo "Boot directory configured."
 # Step 9: Create ISO
 echo "Creating the WolfOS ISO..."
 xorriso -as mkisofs -o "$IMAGE_NAME" \
-  -isohybrid-mbr /usr/lib/ISOLINUX/isohdpfx.bin \
   -c boot.cat -b boot/grub/i386-pc/core.img \
   -no-emul-boot -boot-load-size 4 -boot-info-table \
   "$WORK_DIR/iso"
