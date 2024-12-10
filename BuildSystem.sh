@@ -16,7 +16,7 @@ fi
 # Install required tools
 echo "Installing required tools..."
 sudo apt update
-sudo apt install -y debootstrap xorriso grub-pc-bin squashfs-tools apt-transport-https wget curl dialog calamares
+sudo apt install -y debootstrap xorriso grub-pc-bin squashfs-tools apt-transport-https wget curl dialog calamares isolinux
 echo "Required tools installed."
 
 # Step 1: Create the base system with debootstrap
