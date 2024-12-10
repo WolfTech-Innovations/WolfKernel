@@ -100,12 +100,10 @@ echo "SquashFS created."
 echo "Setting up boot directory..."
 mkdir -p "$WORK_DIR/iso/boot/grub"
 sudo cp "$CHROOT_DIR/boot/vmlinux" "$WORK_DIR/iso/boot/vmlinux"
-sudo cp "$CHROOT_DIR/boot/initrd.img-"* "$WORK_DIR/iso/boot/initrd"
 cat <<GRUB > "$WORK_DIR/iso/boot/grub/grub.cfg"
 set timeout=10
 menuentry "WolfOS Live" {
     linux /boot/vmlinux boot=live quiet splash
-    initrd /boot/initrd
 }
 GRUB
 echo "Boot directory configured."
