@@ -5,8 +5,7 @@ IMAGE_NAME="WolfOS.iso"
 WORK_DIR="/tmp/wolfos_iso"
 CHROOT_DIR="$WORK_DIR/chroot"
 ARCH="amd64" # Change to i386 for 32-bit systems
-COMPILED_KERNEL_PATH="WolfKernel/vmlinux" # Replace with your kernel path
-
+COMPILED_KERNEL_PATH="WolfKernel/arch/x86_64/bzImage"
 # Ensure compiled kernel file exists
 if [[ ! -f "$COMPILED_KERNEL_PATH" ]]; then
     echo "ERROR: Compiled kernel not found at $COMPILED_KERNEL_PATH"
