@@ -5,7 +5,7 @@ IMAGE_NAME="WolfOS.iso"
 WORK_DIR="/tmp/wolfos_iso"
 CHROOT_DIR="$WORK_DIR/chroot"
 ARCH="amd64" # Change to i386 for 32-bit systems
-COMPILED_KERNEL_PATH="WolfKernel/arch/x86_64/bzImage"
+COMPILED_KERNEL_PATH="WolfKernel/arch/x86_64/boot/bzImage"
 # Ensure compiled kernel file exists
 if [[ ! -f "$COMPILED_KERNEL_PATH" ]]; then
     echo "ERROR: Compiled kernel not found at $COMPILED_KERNEL_PATH"
@@ -74,7 +74,8 @@ echo "Calamares configured."
 
 # Step 5: Copy the compiled kernel and configure GRUB
 echo "Configuring GRUB with compiled kernel..."
-sudo cp "$COMPILED_KERNEL_PATH" "$CHROOT_DIR/boot/vmlinux"
+mkdir "$CHROOT_DIR/boot"
+sudo cp "$COMPILED_KERNEL_PATH" "$CHROOT_DIR/boot/bzImage"
 sudo chroot "$CHROOT_DIR" /bin/bash <<EOF
 update-initramfs -c -k all
 grub-install --target=i386-pc --boot-directory=/boot --recheck
